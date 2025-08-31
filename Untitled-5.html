@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1 class="logo">MindCare</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Let’s Talk About <span>Mental Health</span></h2>
+      <p>Raising awareness, breaking stigma, and building a supportive community.</p>
+      <button onclick="scrollToSection('resources')">Explore Resources</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>Why Mental Health Matters?</h2>
+    <p>Mental health is just as important as physical health. College students often face stress, anxiety, and pressure—this platform is here to support and spread awareness.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>🧠 Awareness</h3>
+        <p>Learn the importance of mental health and break the stigma.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Support</h3>
+        <p>Find resources and communities that care for your well-being.</p>
+      </div>
+      <div class="card">
+        <h3>🌱 Growth</h3>
+        <p>Develop healthy coping mechanisms and build resilience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="resources">
+    <h2>Helpful Resources</h2>
+    <ul>
+      <li><a href="https://www.who.int/health-topics/mental-health" target="_blank">World Health Organization (WHO)</a></li>
+      <li><a href="https://www.nimh.nih.gov/health" target="_blank">National Institute of Mental Health</a></li>
+      <li><a href="https://www.mentalhealth.gov/" target="_blank">MentalHealth.gov</a></li>
+      <li><a href="https://www.betterhelp.com/" target="_blank">BetterHelp Online Counseling</a></li>
+      <li><a href="https://www.talkspace.com/" target="_blank">Talkspace Therapy</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 MindCare | Made with ❤️ for Awareness</p>
+  </footer>
+
+  <!-- Link JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+/* Reset + Global */
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background: #fdfdfd;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 15px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0; left: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav .nav-links a:hover { color: #ffd54f; }
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+.hero-content h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  animation: fadeInDown 1.5s ease-in-out;
+}
+.hero-content span { color: #ffd54f; }
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  animation: fadeInUp 2s ease-in-out;
+}
+.hero-content button {
+  background: #ffd54f;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.hero-content button:hover { background: #ffb300; }
+
+/* Animations */
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* About Section */
+.about {
+  padding: 80px 50px;
+  text-align: center;
+  background: #f5f5f5;
+}
+.cards { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 250px;
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-10px); }
+
+/* Resources */
+.resources { padding: 70px 50px; text-align: center; }
+.resources a {
+  color: #4CAF50; font-weight: 500;
+  text-decoration: none;
+}
+.resources a:hover { color: #388E3C; }
+
+/* Contact */
+.contact { padding: 70px 50px; text-align: center; background: #f5f5f5; }
+.contact form {
+  max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;
+}
+.contact input, .contact textarea {
+  padding: 12px; border: 1px solid #ccc; border-radius: 8px;
+}
+.contact button {
+  background: #4CAF50; color: white; border: none;
+  padding: 12px; border-radius: 8px; cursor: pointer;
+}
+.contact button:hover { background: #388E3C; }
+
+/* Footer */
+footer {
+  text-align: center; padding: 20px; background: #333; color: white;
+} 
+// Smooth Scroll Function
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Contact Form Alert
+document.querySelector("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("✅ Thank you for reaching out! We'll get back to you soon.");
+  this.reset();
+});

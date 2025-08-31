@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Website Blueprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .slide {
+            min-height: 100vh;
+            display: none;
+            padding: 2rem;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .blueprint-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+        }
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .wireframe {
+            border: 2px dashed #6b7280;
+            background: rgba(243, 244, 246, 0.5);
+        }
+        .component-box {
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 4px;
+            padding: 8px;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">12</span>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button onclick="previousSlide()" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+            ← Previous
+        </button>
+        <button onclick="nextSlide()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            Next →
+        </button>
+    </div>
+
+    <!-- Slide 1: Title Slide -->
+    <div class="slide active blueprint-bg text-white">
+        <div class="container mx-auto text-center">
+            <div class="mb-8">
+                <svg class="w-24 h-24 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+            </div>
+            <h1 class="text-5xl font-bold mb-6">Mental Health Website</h1>
+            <h2 class="text-3xl font-light mb-8">Blueprint & Structure</h2>
+            <div class="bg-white bg-opacity-20 rounded-lg p-6 max-w-2xl mx-auto">
+                <p class="text-xl mb-4">Comprehensive presentation outlining:</p>
+                <ul class="text-lg space-y-2">
+                    <li>• Website architecture and layout</li>
+                    <li>• Content strategy and sections</li>
+                    <li>• User experience design</li>
+                    <li>• Technical implementation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: Website Overview -->
+    <div class="slide bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Website Overview</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">🎯 Purpose & Goals</h2>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="text-blue-500 mr-3">•</span>Educate about mental health conditions</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3">•</span>Reduce stigma and promote awareness</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3">•</span>Provide crisis resources and support</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3">•</span>Guide users to professional help</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-3">•</span>Offer self-care strategies</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">👥 Target Audience</h2>
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h3 class="font-semibold">Primary Users</h3>
+                            <p class="text-sm text-gray-600">Individuals experiencing mental health challenges</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h3 class="font-semibold">Secondary Users</h3>
+                            <p class="text-sm text-gray-600">Family members, friends, caregivers</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h3 class="font-semibold">General Public</h3>
+                            <p class="text-sm text-gray-600">Anyone seeking mental health information</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8">
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Key Success Metrics</h2>
+                <div class="grid md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-white p-4 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">📊</div>
+                        <p class="text-sm font-semibold">User Engagement</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <div class="text-2xl font-bold text-green-600">🔗</div>
+                        <p class="text-sm font-semibold">Resource Clicks</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <div class="text-2xl font-bold text-purple-600">⏱️</div>
+                        <p class="text-sm font-semibold">Time on Site</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">🆘</div>
+                        <p class="text-sm font-semibold">Crisis Line Usage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Site Architecture -->
+    <div class="slide bg-gray-50">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Site Architecture</h1>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-semibold text-center text-blue-700 mb-8">Information Hierarchy</h2>
+                    
+                    <!-- Header Level -->
+                    <div class="wireframe p-4 mb-4">
+                        <div class="component-box text-center">
+                            <strong>HEADER</strong>
+                            <div class="text-sm text-gray-600 mt-2">Hero Section + Navigation CTAs</div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Sections -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>1. What is Mental Health?</strong>
+                                <div class="text-xs text-gray-600 mt-1">Educational foundation</div>
+                            </div>
+                        </div>
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>2. Statistics & Facts</strong>
+                                <div class="text-xs text-gray-600 mt-1">Data visualization</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>3. Common Conditions</strong>
+                                <div class="text-xs text-gray-600 mt-1">Condition cards with details</div>
+                            </div>
+                        </div>
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>4. Warning Signs</strong>
+                                <div class="text-xs text-gray-600 mt-1">Recognition guide</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>5. Treatment Options</strong>
+                                <div class="text-xs text-gray-600 mt-1">Therapy & medication info</div>
+                            </div>
+                        </div>
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>6. Self-Care Strategies</strong>
+                                <div class="text-xs text-gray-600 mt-1">Wellness tips & activities</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priority Sections -->
+                    <div class="wireframe p-4 mb-4 border-red-300 bg-red-50">
+                        <div class="component-box bg-red-100">
+                            <strong>🚨 CRISIS RESOURCES</strong>
+                            <div class="text-sm text-red-700 mt-2">Immediate help - Highest priority</div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>7. Professional Help</strong>
+                                <div class="text-xs text-gray-600 mt-1">Finding providers</div>
+                            </div>
+                        </div>
+                        <div class="wireframe p-3">
+                            <div class="component-box">
+                                <strong>8. FAQ Section</strong>
+                                <div class="text-xs text-gray-600 mt-1">Interactive accordion</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="wireframe p-4">
+                        <div class="component-box">
+                            <strong>FOOTER</strong>
+                            <div class="text-sm text-gray-600 mt-2">Disclaimers + Additional Resources</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Header & Hero Section -->
+    <div class="slide bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Header & Hero Section</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-purple-700 mb-6">🎨 Design Elements</h2>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="text-purple-500 mr-3">•</span><strong>Gradient Background:</strong> Purple to blue for calming effect</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-3">•</span><strong>Heart Icon:</strong> Universal symbol of care and love</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-3">•</span><strong>Typography:</strong> Large, bold, reassuring headline</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-3">•</span><strong>Messaging:</strong> "You are not alone" - immediate comfort</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6 mt-8">🎯 Call-to-Action Strategy</h2>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <h3 class="font-semibold text-red-700">Primary CTA: "Get Help Now"</h3>
+                            <p class="text-sm text-red-600">Direct link to crisis resources - highest priority</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                            <h3 class="font-semibold text-blue-700">Secondary CTA: "Find Resources"</h3>
+                            <p class="text-sm text-blue-600">Guides to professional help and support</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">📱 Responsive Design</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-semibold">Desktop (1200px+)</h3>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Large hero text (4xl-6xl)</li>
+                                <li>• Side-by-side CTA buttons</li>
+                                <li>• Full gradient background</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-semibold">Tablet (768px-1199px)</h3>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Medium hero text (3xl-4xl)</li>
+                                <li>• Stacked CTA buttons</li>
+                                <li>• Adjusted padding</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-semibold">Mobile (< 768px)</h3>
+                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                <li>• Smaller hero text (2xl-3xl)</li>
+                                <li>• Full-width buttons</li>
+                                <li>• Compact spacing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-6">
+                <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">Psychological Design Principles</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div>
+                        <div class="text-3xl mb-2">🎨</div>
+                        <h4 class="font-semibold">Color Psychology</h4>
+                        <p class="text-sm text-gray-600">Blue/purple for trust and calm</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">💝</div>
+                        <h4 class="font-semibold">Emotional Connection</h4>
+                        <p class="text-sm text-gray-600">Heart symbol creates warmth</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">🤝</div>
+                        <h4 class="font-semibold">Immediate Support</h4>
+                        <p class="text-sm text-gray-600">Clear path to help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Content Strategy -->
+    <div class="slide bg-gray-50">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Content Strategy</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">📝 Content Principles</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">🎯 Accessibility First</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Plain language, no medical jargon</li>
+                                <li>• Clear headings and structure</li>
+                                <li>• Visual icons for quick recognition</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">💚 Empathetic Tone</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Non-judgmental language</li>
+                                <li>• Hope-focused messaging</li>
+                                <li>• Validation of experiences</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">📊 Evidence-Based</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Current statistics and research</li>
+                                <li>• Credible sources cited</li>
+                                <li>• Professional disclaimers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">🏗️ Content Architecture</h2>
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded-lg shadow border-l-4 border-blue-400">
+                            <h4 class="font-semibold text-sm">Educational Content (40%)</h4>
+                            <p class="text-xs text-gray-600">What is mental health, conditions, statistics</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow border-l-4 border-red-400">
+                            <h4 class="font-semibold text-sm">Crisis Resources (20%)</h4>
+                            <p class="text-xs text-gray-600">Immediate help, hotlines, emergency info</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow border-l-4 border-green-400">
+                            <h4 class="font-semibold text-sm">Self-Help Content (20%)</h4>
+                            <p class="text-xs text-gray-600">Coping strategies, wellness tips</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow border-l-4 border-purple-400">
+                            <h4 class="font-semibold text-sm">Professional Help (15%)</h4>
+                            <p class="text-xs text-gray-600">Finding therapists, treatment options</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow border-l-4 border-orange-400">
+                            <h4 class="font-semibold text-sm">Support Content (5%)</h4>
+                            <p class="text-xs text-gray-600">FAQ, additional resources</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold text-purple-700 mb-4 mt-8">🎨 Visual Content Strategy</h2>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><strong>Icons:</strong> Emotional recognition and quick scanning</li>
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><strong>Color Coding:</strong> Different conditions/sections</li>
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><strong>Cards:</strong> Digestible information chunks</li>
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><strong>Statistics:</strong> Large numbers for impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Crisis Resources Design -->
+    <div class="slide bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Crisis Resources Section</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-red-700 mb-6">🚨 Design Priorities</h2>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-lg">
+                            <h3 class="font-semibold text-red-800 mb-2">Immediate Visibility</h3>
+                            <ul class="text-sm text-red-700 space-y-1">
+                                <li>• Red color scheme for urgency</li>
+                                <li>• Large, bold phone numbers</li>
+                                <li>• Emergency icon (🚨) for recognition</li>
+                                <li>• Prominent placement on page</li>
+                            </ul>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                            <h3 class="font-semibold text-yellow-800 mb-2">Clear Instructions</h3>
+                            <ul class="text-sm text-yellow-700 space-y-1">
+                                <li>• Step-by-step emergency protocols</li>
+                                <li>• When to call 911 vs. hotlines</li>
+                                <li>• What to expect when calling</li>
+                                <li>• Multiple contact methods</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">📞 Resource Hierarchy</h2>
+                    <div class="space-y-3">
+                        <div class="bg-red-100 p-4 rounded-lg border-2 border-red-300">
+                            <h4 class="font-bold text-red-800">1. National Suicide Prevention (988)</h4>
+                            <p class="text-sm text-red-700">Primary crisis line - most prominent</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h4 class="font-semibold text-red-700">2. Crisis Text Line</h4>
+                            <p class="text-sm text-red-600">Alternative for those who prefer texting</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                            <h4 class="font-semibold text-purple-700">3. Specialized Lines</h4>
+                            <p class="text-xs text-purple-600">LGBTQ+, Veterans, Postpartum</p>
+                        </div>
+                        <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                            <h4 class="font-semibold text-yellow-700">4. Emergency Services</h4>
+                            <p class="text-xs text-yellow-600">911 for immediate danger</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-blue-800 mb-2">📱 Mobile Optimization</h3>
+                        <ul class="text-sm text-blue-700 space-y-1">
+                            <li>• Clickable phone numbers</li>
+                            <li>• Large touch targets</li>
+                            <li>• Simplified layout for stress</li>
+                            <li>• Quick access from header</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-gradient-to-r from-red-100 to-orange-100 rounded-lg p-6">
+                <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">User Experience Considerations</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div>
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h4 class="font-semibold">Speed</h4>
+                        <p class="text-sm text-gray-600">Instant access to help</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h4 class="font-semibold">Clarity</h4>
+                        <p class="text-sm text-gray-600">No confusion in crisis</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">🤝</div>
+                        <h4 class="font-semibold">Comfort</h4>
+                        <p class="text-sm text-gray-600">Reassuring presence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Interactive Features -->
+    <div class="slide bg-gray-50">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Interactive Features</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-purple-700 mb-6">🎛️ User Interactions</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">📋</span>
+                                FAQ Accordion
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Expandable Q&A sections</li>
+                                <li>• Smooth animations</li>
+                                <li>• One-at-a-time expansion</li>
+                                <li>• Common concerns addressed</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">🔗</span>
+                                Navigation CTAs
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Smooth scroll to sections</li>
+                                <li>• Quick access buttons</li>
+                                <li>• External resource links</li>
+                                <li>• Hover effects for feedback</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">✨</span>
+                                Scroll Animations
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Fade-in on scroll</li>
+                                <li>• Gentle slide-up effects</li>
+                                <li>• Intersection Observer API</li>
+                                <li>• Performance optimized</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">🎨 Visual Feedback</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">Hover States</h3>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <div class="bg-blue-100 p-2 rounded">Buttons: Color change</div>
+                                <div class="bg-green-100 p-2 rounded">Cards: Lift effect</div>
+                                <div class="bg-purple-100 p-2 rounded">Links: Underline</div>
+                                <div class="bg-orange-100 p-2 rounded">Icons: Scale up</div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">Loading States</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Smooth transitions</li>
+                                <li>• Progressive disclosure</li>
+                                <li>• Skeleton screens</li>
+                                <li>• Error handling</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2">Accessibility Features</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Keyboard navigation</li>
+                                <li>• Focus indicators</li>
+                                <li>• Screen reader support</li>
+                                <li>• High contrast options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">Technical Implementation</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-blue-100 p-4 rounded-lg mb-3">
+                            <h4 class="font-semibold text-blue-800">JavaScript</h4>
+                            <p class="text-sm text-blue-600 mt-2">Vanilla JS for interactions</p>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Event listeners</li>
+                            <li>• DOM manipulation</li>
+                            <li>• Smooth scrolling</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 p-4 rounded-lg mb-3">
+                            <h4 class="font-semibold text-green-800">CSS Animations</h4>
+                            <p class="text-sm text-green-600 mt-2">Tailwind + custom CSS</p>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Transitions</li>
+                            <li>• Transform effects</li>
+                            <li>• Keyframe animations</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 p-4 rounded-lg mb-3">
+                            <h4 class="font-semibold text-purple-800">Performance</h4>
+                            <p class="text-sm text-purple-600 mt-2">Optimized loading</p>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Lazy loading</li>
+                            <li>• Debounced events</li>
+                            <li>• Minimal reflows</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Design System -->
+    <div class="slide bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Design System</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">🎨 Color Palette</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-lg text-white">
+                            <h3 class="font-semibold">Primary Gradient</h3>
+                            <p class="text-sm opacity-90">#667eea → #764ba2</p>
+                            <p class="text-xs opacity-75">Trust, calm, professional</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-red-500 p-3 rounded text-white text-center">
+                                <div class="font-semibold">Crisis</div>
+                                <div class="text-xs">#ef4444</div>
+                            </div>
+                            <div class="bg-green-500 p-3 rounded text-white text-center">
+                                <div class="font-semibold">Success</div>
+                                <div class="text-xs">#10b981</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="bg-blue-500 p-2 rounded text-white text-center text-xs">
+                                <div>Info</div>
+                                <div>#3b82f6</div>
+                            </div>
+                            <div class="bg-purple-500 p-2 rounded text-white text-center text-xs">
+                                <div>Support</div>
+                                <div>#8b5cf6</div>
+                            </div>
+                            <div class="bg-orange-500 p-2 rounded text-white text-center text-xs">
+                                <div>Warning</div>
+                                <div>#f97316</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold text-green-700 mb-4 mt-8">📝 Typography</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Inter Font Family</h3>
+                            <p class="text-gray-600">Modern, readable, accessible</p>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-4xl font-bold">H1</span>
+                                <span class="text-gray-500">4xl-6xl, Bold</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-2xl font-semibold">H2</span>
+                                <span class="text-gray-500">2xl-3xl, Semibold</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-lg font-medium">H3</span>
+                                <span class="text-gray-500">lg-xl, Medium</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-base">Body</span>
+                                <span class="text-gray-500">base, Regular</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-purple-700 mb-6">🧩 Component Library</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-3">Cards</h3>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-white p-3 rounded shadow text-center text-xs">
+                                    <div class="text-lg mb-1">📊</div>
+                                    <div class="font-semibold">Stat Card</div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow text-xs">
+                                    <div class="font-semibold mb-1">Info Card</div>
+                                    <div class="text-gray-600">Content...</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-3">Buttons</h3>
+                            <div class="space-y-2">
+                                <button class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                                    Crisis CTA
+                                </button>
+                                <button class="border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">
+                                    Secondary
+                                </button>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm">
+                                    Standard
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-3">Alert Boxes</h3>
+                            <div class="space-y-2">
+                                <div class="bg-red-50 border-l-4 border-red-400 p-2 text-xs">
+                                    <strong>Crisis Alert</strong>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-2 text-xs">
+                                    <strong>Warning</strong>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-400 p-2 text-xs">
+                                    <strong>Information</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold text-orange-700 mb-4 mt-6">📐 Spacing System</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="grid grid-cols-4 gap-2 text-xs text-center">
+                            <div class="bg-blue-200 p-1">4px</div>
+                            <div class="bg-blue-300 p-2">8px</div>
+                            <div class="bg-blue-400 p-3 text-white">12px</div>
+                            <div class="bg-blue-500 p-4 text-white">16px</div>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Consistent 4px base unit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Responsive Design -->
+    <div class="slide bg-gray-50">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Responsive Design Strategy</h1>
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🖥️</span>
+                        Desktop (1200px+)
+                    </h2>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Multi-column layouts</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Side-by-side content</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Hover interactions</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Large typography</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Detailed statistics</li>
+                    </ul>
+                    <div class="mt-4 bg-blue-50 p-3 rounded">
+                        <h4 class="font-semibold text-blue-800 text-sm">Grid System</h4>
+                        <p class="text-xs text-blue-600">3-4 columns for cards</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-green-700 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">📱</span>
+                        Tablet (768-1199px)
+                    </h2>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>2-column layouts</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Stacked sections</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Touch-friendly buttons</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Medium typography</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Simplified navigation</li>
+                    </ul>
+                    <div class="mt-4 bg-green-50 p-3 rounded">
+                        <h4 class="font-semibold text-green-800 text-sm">Adaptations</h4>
+                        <p class="text-xs text-green-600">Balanced content density</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-purple-700 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">📱</span>
+                        Mobile (<768px)
+                    </h2>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Single column layout</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Vertical stacking</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Large touch targets</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Compact spacing</li>
+                        <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Priority content first</li>
+                    </ul>
+                    <div class="mt-4 bg-purple-50 p-3 rounded">
+                        <h4 class="font-semibold text-purple-800 text-sm">Mobile-First</h4>
+                        <p class="text-xs text-purple-600">Crisis resources prominent</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-8">Breakpoint Strategy</h2>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Tailwind CSS Breakpoints</h3>
+                        <div class="grid md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-white p-3 rounded shadow">
+                                <div class="font-semibold text-sm">sm</div>
+                                <div class="text-xs text-gray-600">640px+</div>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow">
+                                <div class="font-semibold text-sm">md</div>
+                                <div class="text-xs text-gray-600">768px+</div>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow">
+                                <div class="font-semibold text-sm">lg</div>
+                                <div class="text-xs text-gray-600">1024px+</div>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow">
+                                <div class="font-semibold text-sm">xl</div>
+                                <div class="text-xs text-gray-600">1280px+</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Content Prioritization</h3>
+                            <ol class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start"><span class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">1</span>Crisis resources</li>
+                                <li class="flex items-start"><span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">2</span>Key statistics</li>
+                                <li class="flex items-start"><span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">3</span>Warning signs</li>
+                                <li class="flex items-start"><span class="bg-purple-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">4</span>Self-care tips</li>
+                                <li class="flex items-start"><span class="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2 mt-0.5">5</span>Detailed information</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4">Performance Considerations</h3>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Lazy loading for images</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Optimized font loading</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Minimal JavaScript</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>CSS-only animations</li>
+                                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Compressed assets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Accessibility & UX -->
+    <div class="slide bg-white">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Accessibility & User Experience</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">♿ Accessibility Features</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
+                            <h3 class="font-semibold text-blue-800 mb-2">WCAG 2.1 Compliance</h3>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• AA level contrast ratios</li>
+                                <li>• Keyboard navigation support</li>
+                                <li>• Screen reader compatibility</li>
+                                <li>• Focus indicators</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg">
+                            <h3 class="font-semibold text-green-800 mb-2">Inclusive Design</h3>
+                            <ul class="text-sm text-green-700 space-y-1">
+                                <li>• Plain language content</li>
+                                <li>• Multiple ways to access help</li>
+                                <li>• Cultural sensitivity</li>
+                                <li>• Diverse representation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 rounded-lg">
+                            <h3 class="font-semibold text-purple-800 mb-2">Technical Implementation</h3>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• Semantic HTML structure</li>
+                                <li>• ARIA labels and roles</li>
+                                <li>• Alt text for images</li>
+                                <li>• Proper heading hierarchy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">🎯 UX Principles</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">⚡</span>
+                                Speed & Efficiency
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Fast loading times</li>
+                                <li>• Quick access to help</li>
+                                <li>• Minimal cognitive load</li>
+                                <li>• Clear information hierarchy</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">💚</span>
+                                Emotional Safety
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Non-judgmental language</li>
+                                <li>• Calming color palette</li>
+                                <li>• Reassuring messaging</li>
+                                <li>• Privacy considerations</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">🎯</span>
+                                Goal-Oriented Design
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Clear call-to-actions</li>
+                                <li>• Multiple pathways to help</li>
+                                <li>• Progressive disclosure</li>
+                                <li>• Task completion focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-8">
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">User Journey Considerations</h2>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg shadow mb-3">
+                            <div class="text-3xl mb-2">🔍</div>
+                            <h4 class="font-semibold text-gray-800">Discovery</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">User finds site through search or referral</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg shadow mb-3">
+                            <div class="text-3xl mb-2">📖</div>
+                            <h4 class="font-semibold text-gray-800">Learning</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">Absorbs information about mental health</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg shadow mb-3">
+                            <div class="text-3xl mb-2">🤝</div>
+                            <h4 class="font-semibold text-gray-800">Connection</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">Finds resources and support options</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white p-4 rounded-lg shadow mb-3">
+                            <div class="text-3xl mb-2">🎯</div>
+                            <h4 class="font-semibold text-gray-800">Action</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">Takes steps toward getting help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Technical Implementation -->
+    <div class="slide bg-gray-50">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Technical Implementation</h1>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-6">🛠️ Technology Stack</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">🎨</span>
+                                Frontend Technologies
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• <strong>HTML5:</strong> Semantic structure</li>
+                                <li>• <strong>Tailwind CSS:</strong> Utility-first styling</li>
+                                <li>• <strong>Vanilla JavaScript:</strong> Lightweight interactions</li>
+                                <li>• <strong>Google Fonts:</strong> Inter font family</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">⚡</span>
+                                Performance Features
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• <strong>CDN:</strong> Fast Tailwind delivery</li>
+                                <li>• <strong>Optimized Images:</strong> SVG icons</li>
+                                <li>• <strong>Minimal JS:</strong> Essential functionality only</li>
+                                <li>• <strong>CSS Animations:</strong> Hardware accelerated</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <span class="text-2xl mr-2">🔧</span>
+                                Browser Support
+                            </h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• <strong>Modern Browsers:</strong> Chrome, Firefox, Safari, Edge</li>
+                                <li>• <strong>Mobile Browsers:</strong> iOS Safari, Chrome Mobile</li>
+                                <li>• <strong>Fallbacks:</strong> Graceful degradation</li>
+                                <li>• <strong>Progressive Enhancement:</strong> Core content first</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-green-700 mb-6">📊 Code Structure</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-3">File Organization</h3>
+                            <div class="bg-gray-100 p-3 rounded text-sm font-mono">
+                                <div>index.html</div>
+                                <div class="ml-2 text-gray-600">├── &lt;head&gt; (meta, styles)</div>
+                                <div class="ml-2 text-gray-600">├── &lt;header&gt; (hero section)</div>
+                                <div class="ml-2 text-gray-600">├── &lt;main&gt; (content sections)</div>
+                                <div class="ml-2 text-gray-600">├── &lt;footer&gt; (resources)</div>
+                                <div class="ml-2 text-gray-600">└── &lt;script&gt; (interactions)</div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-3">JavaScript Functions</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• <code class="bg-gray-100 px-1 rounded">toggleAccordion()</code> - FAQ expansion</li>
+                                <li>• <code class="bg-gray-100 px-1 rounded">IntersectionObserver</code> - Scroll animations</li>
+                                <li>• <code class="bg-gray-100 px-1 rounded">scrollIntoView()</code> - Smooth navigation</li>
+                                <li>• <code class="bg-gray-100 px-1 rounded">window.open()</code> - External links</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <h3 class="font-semibold text-gray-800 mb-3">CSS Architecture</h3>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• <strong>Utility Classes:</strong> Tailwind for rapid development</li>
+                                <li>• <strong>Custom CSS:</strong> Gradients and animations</li>
+                                <li>• <strong>Component Classes:</strong> Reusable patterns</li>
+                                <li>• <strong>Responsive Design:</strong> Mobile-first approach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Development Workflow</h2>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="bg-blue-100 p-4 rounded-lg mb-3">
+                            <div class="text-3xl mb-2">📝</div>
+                            <h4 class="font-semibold text-blue-800">Planning</h4>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Content strategy</li>
+                            <li>• User research</li>
+                            <li>• Wireframing</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 p-4 rounded-lg mb-3">
+                            <div class="text-3xl mb-2">🎨</div>
+                            <h4 class="font-semibold text-green-800">Design</h4>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Visual design</li>
+                            <li>• Component library</li>
+                            <li>• Accessibility review</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 p-4 rounded-lg mb-3">
+                            <div class="text-3xl mb-2">⚙️</div>
+                            <h4 class="font-semibold text-purple-800">Development</h4>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• HTML structure</li>
+                            <li>• CSS styling</li>
+                            <li>• JavaScript functionality</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-orange-100 p-4 rounded-lg mb-3">
+                            <div class="text-3xl mb-2">🧪</div>
+                            <h4 class="font-semibold text-orange-800">Testing</h4>
+                        </div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• Cross-browser testing</li>
+                            <li>• Accessibility audit</li>
+                            <li>• Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 12: Summary & Next Steps -->
+    <div class="slide blueprint-bg text-white">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-8">Project Summary</h1>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-4">✅ What We've Built</h2>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start"><span class="text-yellow-300 mr-2">•</span>Comprehensive mental health resource website</li>
+                            <li class="flex items-start"><span class="text-yellow-300 mr-2">•</span>Crisis resources with immediate access</li>
+                            <li class="flex items-start"><span class="text-yellow-300 mr-2">•</span>Educational content about conditions</li>
+                            <li class="flex items-start"><span class="text-yellow-300 mr-2">•</span>Self-care strategies and professional help guides</li>
+                            <li class="flex items-start"><span class="text-yellow-300 mr-2">•</span>Fully responsive, accessible design</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6">
+                        <h2 class="text-2xl font-semibold mb-4">🎯 Key Features</h2>
+                        <ul class="text-left space-y-2">
+                            <li class="flex items-start"><span class="text-green-300 mr-2">•</span>Interactive FAQ accordion</li>
+                            <li class="flex items-start"><span class="text-green-300 mr-2">•</span>Smooth scroll animations</li>
+                            <li class="flex items-start"><span class="text-green-300 mr-2">•</span>Mobile-first responsive design</li>
+                            <li class="flex items-start"><span class="text-green-300 mr-2">•</span>WCAG 2.1 accessibility compliance</li>
+                            <li class="flex items-start"><span class="text-green-300 mr-2">•</span>Performance optimized</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 rounded-lg p-8 mb-8">
+                    <h2 class="text-2xl font-semibold mb-6">🚀 Next Steps & Recommendations</h2>
+                    <div class="grid md:grid-cols-3 gap-6 text-left">
+                        <div>
+                            <h3 class="font-semibold mb-3 text-yellow-300">Phase 1: Launch</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>• Final accessibility audit</li>
+                                <li>• Performance testing</li>
+                                <li>• Content review by professionals</li>
+                                <li>• SEO optimization</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3 text-green-300">Phase 2: Enhancement</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>• User feedback collection</li>
+                                <li>• Analytics implementation</li>
+                                <li>• A/B testing for CTAs</li>
+                                <li>• Multi-language support</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3 text-blue-300">Phase 3: Growth</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>• Community features</li>
+                                <li>• Resource directory</li>
+                                <li>• Professional partnerships</li>
+                                <li>• Mobile app consideration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold mb-4">Making Mental Health Support Accessible</h2>
+                    <p class="text-xl mb-6">
+                        This website serves as a comprehensive resource for mental health awareness, 
+                        providing immediate access to crisis support while educating and empowering users 
+                        to seek help and practice self-care.
+                    </p>
+                    <div class="text-6xl mb-4">💙</div>
+                    <p class="text-lg font-light">
+                        Together, we can reduce stigma and save lives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+        
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        
+        document.addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    previousSlide();
+                }
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974ae45ca3ad446d',t:'MTc1NjEyMjg0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

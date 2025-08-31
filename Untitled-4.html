@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      animation: fadeIn 2s;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    nav {
+      background: #357ABD;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover, nav a.active {
+      background: white;
+      color: #357ABD;
+    }
+    section {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    h2 {
+      color: #357ABD;
+      margin-bottom: 15px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    blockquote {
+      font-style: italic;
+      background: #eaf6ff;
+      padding: 15px;
+      border-left: 5px solid #357ABD;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    footer {
+      background: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    .btn {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #357ABD;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #357ABD;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    #backToTop:hover {
+      background: #357ABD;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌱 Mental Health Awareness</h1>
+    <p>"Your feelings are valid. Taking care of your mind is as important as your body."</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#tips">Tips</a>
+    <a href="#quiz">Mood Quiz</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Mental Health</h2>
+    <div class="card">
+      <p>Mental health is about how we think, feel, and behave. It’s normal to feel stressed during college, but reaching out for support makes us stronger. Remember, you are not alone — we’re in this together. 💙</p>
+      <blockquote>“It's okay not to be okay, but it’s not okay to stay that way.”</blockquote>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2>Self-Care Tips 🌸</h2>
+    <div class="card">
+      <ul>
+        <li>💬 Talk to a trusted friend or mentor.</li>
+        <li>😴 Get 7–8 hours of sleep daily.</li>
+        <li>🏃‍♂️ Stay active — even a short walk helps.</li>
+        <li>🧘 Try meditation or deep breathing for 5 minutes.</li>
+        <li>📖 Take breaks and do something you enjoy.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>Quick Mood Quiz 😊</h2>
+    <div class="card">
+      <p>How are you feeling today? Choose one:</p>
+      <button class="btn" onclick="showMood('happy')">😃 Happy</button>
+      <button class="btn" onclick="showMood('stressed')">😟 Stressed</button>
+      <button class="btn" onclick="showMood('sad')">😢 Sad</button>
+      <button class="btn" onclick="showMood('energetic')">⚡ Energetic</button>
+      <p id="moodResult" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Support 🤝</h2>
+    <div class="card">
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p><strong>📍 Counseling Cell:</strong> Room No. 202, Student Center</p>
+      <p><strong>📧 Email:</strong> support@college.edu</p>
+      <p><strong>☎️ Helpline:</strong> 1800-599-0019</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Mental Health Awareness | College Community Engagement Project</p>
+  </footer>
+
+  <button id="backToTop">↑</button>
+
+  <script>
+    // Mood Quiz Function
+    function showMood(mood) {
+      let message = "";
+      if (mood === "happy") {
+        message = "That's wonderful! Keep spreading positivity 🌟";
+      } else if (mood === "stressed") {
+        message = "Take a deep breath. Remember, stress is temporary 💆‍♂️";
+      } else if (mood === "sad") {
+        message = "It’s okay to feel sad. Talk to someone you trust 💙";
+      } else if (mood === "energetic") {
+        message = "Amazing! Use that energy to achieve your goals 🚀";
+      }
+      document.getElementById("moodResult").innerText = message;
+    }
+
+    // Back to top button
+    const backToTop = document.getElementById("backToTop");
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 200) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    };
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Contact form validation
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
+
+      if (name === "" || email === "" || message === "") {
+        alert("Please fill in all fields.");
+        return;
+      }
+      if (!email.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      alert("Thank you, " + name + "! Your message has been sent 💌");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
