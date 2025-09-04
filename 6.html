@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness</title>
+
+  <!-- CSS Styling -->
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f8ff;
+      color: #333;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #4cafef;
+      padding: 10px 20px;
+    }
+
+    nav h1 {
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a.active, nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      color: #fff;
+    }
+
+    .hero button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #fff;
+      color: #333;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero button:hover {
+      background: #f0f0f0;
+    }
+
+    /* Info Section */
+    .info, .resources, .contact {
+      padding: 30px;
+      text-align: center;
+    }
+
+    /* Resources */
+    .resources ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resources li {
+      margin: 10px 0;
+    }
+
+    .resources a {
+      text-decoration: none;
+      color: #007acc;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, textarea, button {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #4cafef;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #007acc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #4cafef;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <h1>Mental Health Awareness</h1>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h2>Your Mental Health Matters</h2>
+    <p>Awareness is the first step towards well-being.</p>
+    <button onclick="showQuote()">Click for Motivation</button>
+    <p id="quote"></p>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info">
+    <h2>Why Mental Health Awareness?</h2>
+    <p>Mental health is as important as physical health. Raising awareness helps reduce stigma and encourages people to seek support.</p>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="resources" id="resources">
+    <h2>Helpful Resources</h2>
+    <ul>
+      <li><a href="https://www.who.int/health-topics/mental-health" target="_blank">WHO - Mental Health</a></li>
+      <li><a href="https://www.nimh.nih.gov" target="_blank">National Institute of Mental Health</a></li>
+      <li><a href="https://www.mentalhealth.gov" target="_blank">MentalHealth.gov</a></li>
+      <li><a href="https://www.betterhelp.com" target="_blank">Online Therapy - BetterHelp</a></li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required>
+      
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" required>
+      
+      <label for="message">Message:</label>
+      <textarea id="message" required></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formResponse"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mental Health Awareness Project</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Random motivational quotes
+    const quotes = [
+      "You are stronger than you think!",
+      "Your mental health matters.",
+      "Take a deep breath, you are doing great.",
+      "It’s okay to not be okay, but never give up.",
+      "Self-care is not selfish."
+    ];
+
+    function showQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerText = quotes[randomIndex];
+    }
+
+    // Contact form submission simulation
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      if (form) {
+        form.addEventListener("submit", function(event) {
+          event.preventDefault();
+          document.getElementById("formResponse").innerText =
+            "✅ Thank you for reaching out! We'll get back to you soon.";
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
