@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Awareness</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: #575757;
+    }
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 15px;
+      background: #4CAF50;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mental Health Awareness</h1>
+    <p>Promoting wellbeing and self-care</p>
+  </header>
+
+  <nav>
+    <a href="#mood">Mood Tracker</a>
+    <a href="#journal">Journal</a>
+    <a href="#quiz">Self Check</a>
+  </nav>
+
+  <section id="mood" class="card">
+    <h2>Mood Tracker</h2>
+    <p>How are you feeling today?</p>
+    <select id="moodSelect">
+      <option value="">--Select--</option>
+      <option value="Happy">Happy</option>
+      <option value="Sad">Sad</option>
+      <option value="Stressed">Stressed</option>
+      <option value="Calm">Calm</option>
+    </select>
+    <button onclick="saveMood()">Save Mood</button>
+    <p id="moodResult"></p>
+  </section>
+
+  <section id="journal" class="card">
+    <h2>Journal</h2>
+    <textarea id="journalInput" placeholder="Write your thoughts..."></textarea>
+    <button onclick="saveJournal()">Save Journal</button>
+    <h3>Previous Entries:</h3>
+    <ul id="journalList"></ul>
+  </section>
+
+  <section id="quiz" class="card">
+    <h2>Self Check Quiz</h2>
+    <p>Do you often feel stressed?</p>
+    <input type="radio" name="q1" value="yes"> Yes
+    <input type="radio" name="q1" value="no"> No
+
+    <p>Do you sleep well?</p>
+    <input type="radio" name="q2" value="yes"> Yes
+    <input type="radio" name="q2" value="no"> No
+
+    <button onclick="checkQuiz()">Submit</button>
+    <p id="quizResult"></p>
+  </section>
+
+  <script>
+    function saveMood() {
+      const mood = document.getElementById("moodSelect").value;
+      if(mood) {
+        localStorage.setItem("mood", mood);
+        document.getElementById("moodResult").innerText = `You selected: ${mood}`;
+      } else {
+        alert("Please select a mood");
+      }
+    }
+
+    function saveJournal() {
+      const text = document.getElementById("journalInput").value;
+      if(text) {
+        let entries = JSON.parse(localStorage.getItem("journals")) || [];
+        entries.push(text);
+        localStorage.setItem("journals", JSON.stringify(entries));
+        displayJournals();
+        document.getElementById("journalInput").value = "";
+      } else {
+        alert("Please write something");
+      }
+    }
+
+    function displayJournals() {
+      const entries = JSON.parse(localStorage.getItem("journals")) || [];
+      const list = document.getElementById("journalList");
+      list.innerHTML = "";
+      entries.forEach((entry, index) => {
+        const li = document.createElement("li");
+        li.textContent = entry;
+        list.appendChild(li);
+      });
+    }
+
+    function checkQuiz() {
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      if(!q1 || !q2) {
+        alert("Please answer both questions");
+        return;
+      }
+      let score = 0;
+      if(q1.value === "yes") score++;
+      if(q2.value === "no") score++;
+
+      let message = "";
+      if(score === 0) message = "Great! You seem to be doing well.";
+      else if(score === 1) message = "Take care, you might need to relax more.";
+      else message = "Consider talking to someone about your wellbeing.";
+
+      document.getElementById("quizResult").innerText = message;
+    }
+
+    // Load journals on page load
+    window.onload = displayJournals;
+  </script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Awareness Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e80c07ee-2e64-4ae2-ba4b-86f7d8c2bad8.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .fade-in { opacity: 0; animation: fadeIn 1s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-up { transform: translateY(20px); transition: all 0.5s ease; }
+        .slide-up.in-view { transform: translateY(0); opacity: 1; }
+        #quiz-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
+        .modal-content { background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; margin: 10% auto; text-align: center; color: #374151; }
+        .progress-bar { width: 100%; background-color: #e5e7eb; border-radius: 0.5rem; height: 0.5rem; overflow: hidden; }
+        .progress-fill { height: 100%; background-color: #10b981; transition: width 0.4s ease; }
+        .resource-card { transition: transform 0.3s ease; }
+        .resource-card:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-blue-600">MindWell Hub</h1>
+            </div>
+            <ul class="flex space-x-6 hidden md:flex">
+                <li><a href="#hero" class="text-gray-700 hover:text-blue-600 transition">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a></li>
+                <li><a href="#symptoms" class="text-gray-700 hover:text-blue-600 transition">Symptoms</a></li>
+                <li><a href="#tips" class="text-gray-700 hover:text-blue-600 transition">Wellness Tips</a></li>
+                <li><a href="#resources" class="text-gray-700 hover:text-blue-600 transition">Resources</a></li>
+                <li><button id="quiz-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Take Quiz</button></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">Menu</button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden bg-white absolute w-full left-0 top-16 shadow-lg hidden">
+            <ul class="py-4 space-y-2">
+                <li><a href="#hero" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Home</a></li>
+                <li><a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">About</a></li>
+                <li><a href="#symptoms" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Symptoms</a></li>
+                <li><a href="#tips" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Wellness Tips</a></li>
+                <li><a href="#resources" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Resources</a></li>
+                <li><button id="mobile-quiz-btn" class="block px-4 py-2 text-blue-600 hover:bg-blue-50 w-full text-left">Take Quiz</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">Empower Your Mind</h2>
+                <p class="text-xl md:text-2xl mb-8">A comprehensive guide to mental health awareness, offering insights, tools, and support for a healthier, happier life.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition"><a href="#about">Learn More</a></button>
+                    <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 text-white px-8 py-3 rounded-full font-semibold transition"><a href="#resources">Get Help</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-10 items-center slide-up">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0832b977-75b6-4a5b-ae98-14be98cf57b8.png" alt="Diverse group of people in a supportive circle discussion with compassionate expressions, warm lighting in a cozy room indicating mental health therapy and connection">
+                    <div class="mt-4 text-gray-600">**Image description for generation:** A realistic photograph of a diverse group of adults sitting in a circle in a well-lit therapy room, smiling and engaging in conversation, conveying themes of support, mental wellness, and community.</div>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-blue-600">What is Mental Health Awareness?</h3>
+                    <p class="text-lg mb-4">Mental health encompasses our emotional, psychological, and social well-being. It affects how we think, feel, and act. Mental health is important at every stage of life, from childhood to adulthood. Awareness means understanding mental health conditions, recognizing signs of struggle, and seeking help when needed.</p>
+                    <p class="text-lg mb-6">This website aims to educate, destigmatize, and provide actionable steps for better mental health practices.</p>
+                    <button id="scroll-to-symptoms" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">See Symptoms</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section id="symptoms" class="py-20 bg-gradient-to-r from-blue-50 to-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">Common Signs & Symptoms</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f897abe1-2659-48b3-9a30-917bc2dc68ff.png" alt="Anxious young person with furrowed brow and clenched hands in a dimly lit room, illustrating worry and tension with subtle shadows emphasizing emotional distress">
+                    <h4 class="text-xl font-semibold mb-4">Anxiety</h4>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>- Excessive worry or fear</li>
+                        <li>- Restlessness and sleep issues</li>
+                        <li>- Physical symptoms like rapid heartbeat</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d14716a1-6fa6-44b5-bda6-b0c9013fe616.png" alt="Sad individual with downcast eyes and slumped posture, gray-toned background symbolizing melancholy and loneliness in mental health context">
+                    <h4 class="text-xl font-semibold mb-4">Depression</h4>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>- Persistent sadness or emptiness</li>
+                        <li>- Loss of interest in activities</li>
+                        <li>- Fatigue and low energy</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6db2e138-3da0-449f-a831-4f4147c91c34.png" alt="Brain illustration with swirling chaotic lines and heavy weights on top, vibrant colors representing stress and mental overload in a psychological awareness theme">
+                    <h4 class="text-xl font-semibold mb-4">Stress</h4>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>- Overwhelmed feelings</li>
+                        <li>- Irritability and mood swings</li>
+                        <li>- Difficulty concentrating</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Tips Section -->
+    <section id="tips" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">Daily Wellness Tips</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center slide-up">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">🧘</span>
+                    </div>
+                    <h4 class="font-semibold">Mindfulness</h4>
+                    <p>Practice deep breathing exercises daily.</p>
+                </div>
+                <div class="text-center slide-up">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">🚴</span>
+                    </div>
+                    <h4 class="font-semibold">Exercise</h4>
+                    <p>Engage in at least 30 minutes of physical activity.</p>
+                </div>
+                <div class="text-center slide-up">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">💬</span>
+                    </div>
+                    <h4 class="font-semibold">Talk It Out</h4>
+                    <p>Connect with friends, family, or a professional.</p>
+                </div>
+                <div class="text-center slide-up">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">📖</span>
+                    </div>
+                    <h4 class="font-semibold">Journaling</h4>
+                    <p>Write down thoughts to process emotions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-gradient-to-r from-purple-50 to-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-600">Helpful Resources</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b7b27f39-7d7d-4edd-8deb-33c6ba96d898.png" alt="Comforting phone with speech bubbles, warm background illustrating mental health crisis support lines and empathetic communication">
+                    <h4 class="text-xl font-semibold mb-4">NAMI Helpline</h4>
+                    <p class="text-gray-700 mb-4">Free, confidential support for mental health conditions.</p>
+                    <a href="https://nami.org/About-NAMI/Contact-Us" target="_blank" class="text-blue-600 hover:underline">Call 1-800-950-NAMI</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2e0feff8-78a0-4b44-8b71-ee87dfc4d72f.png" alt="Therapist and client in discussion, cozy office setting with bookshelves conveying professional mental health care and guidance">
+                    <h4 class="text-xl font-semibold mb-4">Mental Health America</h4>
+                    <p class="text-gray-700 mb-4">Screening tools and advocacy for mental health.</p>
+                    <a href="https://mhanational.org/" target="_blank" class="text-blue-600 hover:underline">Visit Website</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg resource-card">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7781ca6d-7d7b-422c-a60a-08deba009974.png" alt="Diverse people sharing support online, bright screen with hearts and thumbs up indicating digital mental health community and encouragement">
+                    <h4 class="text-xl font-semibold mb-4">Community Support Groups</h4>
+                    <p class="text-gray-700 mb-4">Join local or online groups for peer support.</p>
+                    <a href="https://www.meetup.com/topics/mental-health/" target="_blank" class="text-blue-600 hover:underline">Find Groups</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold mb-6">Mental Wellness Self-Assessment</h2>
+            <div id="quiz-container">
+                <div id="question-1" class="question">
+                    <p class="mb-4">How often do you feel overwhelmed by daily tasks?</p>
+                    <select id="q1" class="w-full p-2 border rounded mb-4">
+                        <option value="0">Rarely</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div id="question-2" class="question hidden">
+                    <p class="mb-4">Do you have trouble sleeping?</p>
+                    <select id="q2" class="w-full p-2 border rounded mb-4">
+                        <option value="0">No, not really</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Yes, frequently</option>
+                    </select>
+                </div>
+                <div id="result" class="hidden">
+                    <h3 id="result-text" class="text-xl mb-4"></h3>
+                    <p class="mb-4">Remember, this is not a diagnosis. Seek professional help if needed.</p>
+                    <button id="restart_quiz" class="bg-blue-600 text-white px-6 py-2 rounded">Retake Quiz</button>
+                </div>
+                <button id="next-btn" class="bg-green-500 text-white px-6 py-2 rounded mr-4">Next</button>
+                <button id="close-modal" class="bg-red-500 text-white px-6 py-2 rounded">Close</button>
+            </div>
+            <div class="mt-4">
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© 2023 Mental Health Awareness Hub. All rights reserved. Created for Educational Purposes.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://twitter.com" target="_blank" class="text-blue-400 hover:text-blue-600 transition">Privacy Policy</a>
+                <a href="https://facebook.com" target="_blank" class="text-blue-400 hover:text-blue-600 transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Quiz Modal
+        const quizBtn = document.getElementById('quiz-btn');
+        const mobileQuizBtn = document.getElementById('mobile-quiz-btn');
+        const quizModal = document.getElementById('quiz-modal');
+        const closeModal = document.getElementById('close-modal');
+        const nextBtn = document.getElementById('next-btn');
+        const restartQuiz = document.getElementById('restart_quiz');
+        const progressFill = document.getElementById('progress-fill');
+
+        let currentQuestion = 1;
+        let score = 0;
+
+        quizBtn.addEventListener('click', openQuiz);
+        mobileQuizBtn.addEventListener('click', () => {
+            openQuiz();
+            mobileMenu.classList.add('hidden');
+        });
+        closeModal.addEventListener('click', () => {
+            quizModal.style.display = 'none';
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const currentQ = document.getElementById(`question-${currentQuestion}`);
+            const value = document.getElementById(`q${currentQuestion}`).value;
+            score += parseInt(value);
+
+            currentQuestion++;
+            currentQ.classList.add('hidden');
+
+            if (currentQuestion > 2) {
+                showResult();
+            } else {
+                document.getElementById(`question-${currentQuestion}`).classList.remove('hidden');
+                updateProgress();
+            }
+        });
+
+        restartQuiz.addEventListener('click', () => {
+            currentQuestion = 1;
+            score = 0;
+            document.querySelectorAll('.question').forEach(q => q.classList.add('hidden'));
+            document.getElementById('question-1').classList.remove('hidden');
+            document.getElementById('result').classList.add('hidden');
+            nextBtn.classList.remove('hidden');
+            updateProgress();
+        });
+
+        function openQuiz() {
+            quizModal.style.display = 'flex';
+            currentQuestion = 1;
+            score = 0;
+            document.getElementById('question-1').classList.remove('hidden');
+            document.getElementById('result').classList.add('hidden');
+            nextBtn.classList.remove('hidden');
+            updateProgress();
+        }
+
+        function updateProgress() {
+            progressFill.style.width = `${(currentQuestion - 1) / 2 * 100}%`;
+        }
+
+        function showResult() {
+            const resultText = document.getElementById('result-text');
+            if (score < 2) {
+                resultText.textContent = "You're showing good mental wellness signs.";
+            } else if (score < 4) {
+                resultText.textContent = "You might benefit from some self-care practices.";
+            } else {
+                resultText.textContent = "Consider speaking with a professional for additional support.";
+            }
+            document.getElementById('result').classList.remove('hidden');
+            nextBtn.classList.add('hidden');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll to symptoms
+        document.getElementById('scroll-to-symptoms').addEventListener('click', () => {
+            document.getElementById('symptoms').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
+
+<attempt_completion>
+Your dynamic mental health awareness website is now complete! I've created a fully responsive, interactive site with sections on mental health info, symptoms, tips, resources, and an interactive quiz. It uses TailwindCSS for styling, JavaScript for animations, modals, and quiz functionality, and placeholder images with detailed alt text. The site is designed to be educational and user-friendly, with smooth scrolling, a mobile menu, and engaging elements to raise awareness.
+
+To open it, save the code in an HTML file (e.g., "mental_health_awareness.html") and open it in a browser. You can expand it further by linking real resources or adding more interactive features!
+</attempt_completion>
