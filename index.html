@@ -1,0 +1,218 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoTrack — Mental Health Awareness</title>
+  <meta name="description" content="EcoTrack — Resources, tips and support for mental health awareness." />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Small accessible focus ring for keyboard users */
+    :focus { outline: 3px solid rgba(59,130,246,0.5); outline-offset: 2px; }
+    .hero-bg { background-image: linear-gradient(90deg, rgba(99,102,241,0.95), rgba(34,197,94,0.85)); }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-50">
+  <!-- NAV -->
+  <header class="bg-white shadow-sm sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="#home" class="flex items-center gap-3">
+          <svg aria-hidden="true" class="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z" stroke-width="1.5"></path><path d="M8 13s1.5-2 4-2 4 2 4 2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span class="font-semibold text-lg">EcoTrack</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-6 text-sm">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#signs" class="hover:underline">Signs</a>
+          <a href="#selfcare" class="hover:underline">Self‑care</a>
+          <a href="#resources" class="hover:underline">Resources</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+        <div class="flex items-center space-x-3">
+          <a href="#help" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700">Get Help</a>
+          <button id="menuBtn" class="md:hidden p-2 rounded-md" aria-expanded="false" aria-controls="mobileMenu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#about" class="block">About</a>
+        <a href="#signs" class="block">Signs</a>
+        <a href="#selfcare" class="block">Self‑care</a>
+        <a href="#resources" class="block">Resources</a>
+        <a href="#contact" class="block">Contact</a>
+      </div>
+    </div>
+  </header>  <!-- HERO -->  <main id="home">
+    <section class="hero-bg text-white py-20">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Mental health matters — you're not alone</h1>
+        <p class="mt-4 text-lg max-w-2xl mx-auto">EcoTrack is a community-first hub for mental health awareness: learn the signs, discover self-care strategies, and find support resources near you.</p>
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="#resources" class="bg-white text-green-700 px-5 py-3 rounded-md font-semibold">Find resources</a>
+          <a href="#selfcare" class="border border-white px-5 py-3 rounded-md">Self-care tips</a>
+        </div>
+      </div>
+    </section><!-- ABOUT -->
+<section id="about" class="py-16">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+    <div>
+      <h2 class="text-2xl font-bold">Why mental health awareness?</h2>
+      <p class="mt-3 text-gray-700">Mental health affects how we think, feel and act. Awareness helps remove stigma, encourages early help-seeking, and builds supportive communities. This site provides practical information and connections to professional support.</p>
+      <ul class="mt-4 space-y-2 text-gray-700">
+        <li>Educational guides and signs to watch for</li>
+        <li>Practical self-care routines</li>
+        <li>Local & national resources and helplines</li>
+      </ul>
+    </div>
+    <div class="rounded-lg overflow-hidden shadow-lg">
+      <img alt="support and community" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="w-full h-64 object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- SIGNS -->
+<section id="signs" class="py-12 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-xl font-bold">Common signs someone may be struggling</h3>
+    <p class="mt-2 text-gray-600">Recognising changes early can lead to timely help. Signs may include:</p>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      <article class="p-4 border rounded">
+        <h4 class="font-semibold">Emotional</h4>
+        <ul class="mt-2 list-disc list-inside text-gray-700">
+          <li>Persistent sadness or irritability</li>
+          <li>Feeling overwhelmed or numb</li>
+        </ul>
+      </article>
+
+      <article class="p-4 border rounded">
+        <h4 class="font-semibold">Behavioural</h4>
+        <ul class="mt-2 list-disc list-inside text-gray-700">
+          <li>Withdrawal from friends or activities</li>
+          <li>Changes in sleep or eating patterns</li>
+        </ul>
+      </article>
+
+      <article class="p-4 border rounded">
+        <h4 class="font-semibold">Cognitive</h4>
+        <ul class="mt-2 list-disc list-inside text-gray-700">
+          <li>Difficulty concentrating</li>
+          <li>Hopeless thoughts</li>
+        </ul>
+      </article>
+
+      <article class="p-4 border rounded">
+        <h4 class="font-semibold">Physical</h4>
+        <ul class="mt-2 list-disc list-inside text-gray-700">
+          <li>Chronic tiredness oraches</li>
+          <li>Unexplained pains</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-CARE -->
+<section id="selfcare" class="py-12">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-2xl font-bold">Self-care techniques you can try today</h3>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="p-5 bg-white rounded shadow">
+        <h4 class="font-semibold">Daily routine</h4>
+        <p class="mt-2 text-gray-700">Create small, consistent habits: regular sleep, nutritious meals, and short walks.</p>
+      </div>
+      <div class="p-5 bg-white rounded shadow">
+        <h4 class="font-semibold">Mindfulness</h4>
+        <p class="mt-2 text-gray-700">Try breathing exercises, grounding techniques, or 5–10 minutes of meditation.</p>
+      </div>
+      <div class="p-5 bg-white rounded shadow">
+        <h4 class="font-semibold">Connect</h4>
+        <p class="mt-2 text-gray-700">Reach out to a friend, join a supportive group, or talk to a counselor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="py-12 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-2xl font-bold">Helplines & resources</h3>
+    <p class="mt-2 text-gray-600">Immediate help and trusted organisations:</p>
+    <ul class="mt-4 space-y-3 text-gray-700">
+      <li><strong>Local crisis line:</strong> If you are in immediate danger, call your country's emergency number.</li>
+      <li><strong>National helpline (India):</strong> KIRAN Mental Health Helpline — 1800-599-0019 (verify before publishing).</li>
+      <li><strong>International:</strong> <a href="https://www.who.int" target="_blank" rel="noopener">World Health Organization</a>, <a href="https://www.iasp.info" target="_blank" rel="noopener">International Association for Suicide Prevention</a></li>
+      <li><strong>Online therapy:</strong> try directories like Psychology Today or your local healthcare portal.</li>
+    </ul>
+
+    <div class="mt-6">
+      <h4 class="font-semibold">Educational downloads</h4>
+      <p class="mt-2 text-gray-700">Download printable conversation starters and self-care checklists:</p>
+      <div class="mt-3 flex gap-3">
+        <a href="#" class="px-4 py-2 bg-green-600 text-white rounded">Self-care checklist (PDF)</a>
+        <a href="#" class="px-4 py-2 border rounded">Conversation guide (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET HELP / CONTACT -->
+<section id="contact" class="py-12">
+  <div class="max-w-4xl mx-auto px-6 bg-white rounded shadow p-8">
+    <h3 class="text-2xl font-bold">Reach out</h3>
+    <p class="mt-2 text-gray-600">If you'd like to suggest resources, volunteer, or ask a question, drop a message below — or use the emergency numbers if it's urgent.</p>
+
+    <form class="mt-6 grid gap-4" id="contactForm" onsubmit="handleForm(event)">
+      <label class="sr-only" for="name">Name</label>
+      <input id="name" name="name" required placeholder="Your name" class="p-3 border rounded" />
+
+      <label class="sr-only" for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="Email" class="p-3 border rounded" />
+
+      <label class="sr-only" for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="How can we help?" class="p-3 border rounded"></textarea>
+
+      <div class="flex justify-between items-center">
+        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded">Send message</button>
+        <a href="#help" class="text-sm">Need urgent help? See helplines</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 bg-gray-100">
+  <div class="max-w-6xl mx-auto px-6 text-sm text-gray-600">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p>© <span id="year"></span> EcoTrack — Mental Health Awareness</p>
+      <div class="mt-3 md:mt-0">Made with care · <a href="#about" class="underline">Learn more</a></div>
+    </div>
+  </div>
+</footer>
+
+  </main>  <script>
+    // Simple JS for interactivity
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn && menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', !open);
+    });
+
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      // For a simple demo we just open mail client. Replace with a real endpoint before publishing.
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const subject = encodeURIComponent('EcoTrack message from ' + name);
+      const body = encodeURIComponent(message + "\n\nContact: " + email);
+      window.location.href = mailto:youremail@example.com?subject=${subject}&body=${body};
+    }
+  </script></body>
+</html>

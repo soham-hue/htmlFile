@@ -1,0 +1,117 @@
+// MentalHealthAwareness.jsx
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Smile, Frown, Meh } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function MentalHealthAwareness() {
+  const [mood, setMood] = useState(null);
+
+  const tips = [
+    "Take a few deep breaths — it really helps reset your mind.",
+    "Go for a short walk or stretch for 5 minutes.",
+    "Talk to a trusted friend about how you feel.",
+    "Try journaling your emotions.",
+    "Remember: It’s okay to not be okay.",
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-green-100 to-blue-100 text-gray-800 p-6">
+      {/* Header */}
+      <header className="text-center mb-10">
+        <motion.h1
+          className="text-4xl font-bold mb-2"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          🌿 Mental Health Awareness
+        </motion.h1>
+        <p className="text-lg text-gray-700">
+          A peaceful mind is a powerful mind. Let’s take care of it.
+        </p>
+      </header>
+
+      {/* Mood Tracker */}
+      <Card className="max-w-lg mx-auto mb-10 shadow-lg">
+        <CardContent className="p-6 text-center">
+          <h2 className="text-2xl font-semibold mb-4">How are you feeling today?</h2>
+          <div className="flex justify-center gap-6 mb-4">
+            <Button
+              variant="outline"
+              onClick={() => setMood("happy")}
+              className={mood === "happy" ? "bg-green-200" : ""}
+            >
+              <Smile className="mr-2" /> Happy
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setMood("neutral")}
+              className={mood === "neutral" ? "bg-yellow-200" : ""}
+            >
+              <Meh className="mr-2" /> Okay
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setMood("sad")}
+              className={mood === "sad" ? "bg-blue-200" : ""}
+            >
+              <Frown className="mr-2" /> Sad
+            </Button>
+          </div>
+          {mood && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-4 text-lg"
+            >
+              {mood === "happy" && "That's wonderful! Keep sharing your positivity 💛"}
+              {mood === "neutral" && "That’s okay — take a moment for yourself 🌿"}
+              {mood === "sad" &&
+                "It’s okay to feel down. You are not alone. Reach out if you need to 💙"}
+            </motion.div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Self-care Tips */}
+      <section className="max-w-2xl mx-auto mb-10">
+        <h2 className="text-2xl font-semibold mb-4 text-center">💡 Self-Care Tips</h2>
+        <ul className="space-y-3">
+          {tips.map((tip, i) => (
+            <li
+              key={i}
+              className="bg-white p-4 rounded-xl shadow-sm border-l-4 border-green-400"
+            >
+              {tip}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Resources Section */}
+      <section className="max-w-2xl mx-auto mb-10">
+        <h2 className="text-2xl font-semibold mb-4 text-center">📘 Helpful Resources</h2>
+        <ul className="space-y-3 text-blue-600 underline text-center">
+          <li><a href="https://www.who.int/mental_health/en/" target="_blank">WHO: Mental Health</a></li>
+          <li><a href="https://www.nami.org/Home" target="_blank">NAMI (National Alliance on Mental Illness)</a></li>
+          <li><a href="https://www.mhanational.org/" target="_blank">Mental Health America</a></li>
+        </ul>
+      </section>
+
+      {/* Get Help */}
+      <footer className="text-center mt-10">
+        <h2 className="text-2xl font-semibold mb-2">📞 Need Immediate Help?</h2>
+        <p>If you or someone you know is struggling, reach out to these hotlines:</p>
+        <p className="font-semibold mt-2">988 Suicide & Crisis Lifeline (US)</p>
+        <p className="text-gray-700 mt-1">You are not alone. Help is available ❤️</p>
+      </footer>
+    </div>
+  );
+}
+
+
+
+
+
+

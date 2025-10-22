@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Mental Health Awareness & Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">M</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">MindWell</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#statistics" class="text-gray-700 hover:text-purple-600 transition-colors">Statistics</a>
+                    <a href="#research" class="text-gray-700 hover:text-purple-600 transition-colors">Research</a>
+                    <a href="#professionals" class="text-gray-700 hover:text-purple-600 transition-colors">Professionals</a>
+                    <a href="#tools" class="text-gray-700 hover:text-purple-600 transition-colors">Tools</a>
+                    <a href="#helplines" class="text-gray-700 hover:text-purple-600 transition-colors">Indian Helplines</a>
+                    <a href="#community" class="text-gray-700 hover:text-purple-600 transition-colors">Community</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700">Home</a>
+                <a href="#statistics" class="block py-2 text-gray-700">Statistics</a>
+                <a href="#research" class="block py-2 text-gray-700">Research</a>
+                <a href="#professionals" class="block py-2 text-gray-700">Professionals</a>
+                <a href="#tools" class="block py-2 text-gray-700">Tools</a>
+                <a href="#helplines" class="block py-2 text-gray-700">Indian Helplines</a>
+                <a href="#community" class="block py-2 text-gray-700">Community</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 py-20">
+            <div class="text-center fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Your Mental Health Matters</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Evidence-based support, cutting-edge research, and compassionate care for mental wellness in India and beyond.</p>
+                <div class="space-x-4">
+                    <button onclick="scrollToSection('helplines')" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">Get Help Now</button>
+                    <button onclick="scrollToSection('research')" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">Explore Research</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Mental Health in India: Key Statistics</h2>
+                <p class="text-xl text-gray-600">Understanding the scale and impact of mental health challenges</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg shadow-lg p-6 text-center card-hover fade-in">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">197.3M</div>
+                    <p class="text-gray-700 font-semibold">Mental Disorders in India</p>
+                    <p class="text-sm text-gray-500 mt-2">People affected (2017 data)</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow-lg p-6 text-center card-hover fade-in">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">45.7M</div>
+                    <p class="text-gray-700 font-semibold">Depressive Disorders</p>
+                    <p class="text-sm text-gray-500 mt-2">Active cases nationwide</p>
+                </div>
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-lg shadow-lg p-6 text-center card-hover fade-in">
+                    <div class="text-4xl font-bold text-red-600 mb-2">0.75</div>
+                    <p class="text-gray-700 font-semibold">Psychiatrists per 100K</p>
+                    <p class="text-sm text-gray-500 mt-2">Critical shortage</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow-lg p-6 text-center card-hover fade-in">
+                    <div class="text-4xl font-bold text-green-600 mb-2">13.7%</div>
+                    <p class="text-gray-700 font-semibold">Population Affected</p>
+                    <p class="text-sm text-gray-500 mt-2">NMHS Survey 2015-16</p>
+                </div>
+            </div>
+            <div class="mt-12 bg-gradient-to-r from-purple-100 to-blue-100 rounded-lg p-8 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Key Insights from National Mental Health Survey</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-purple-400">
+                        <p class="font-semibold text-gray-800 mb-2">Urban vs Rural Divide</p>
+                        <p class="text-gray-600">Higher prevalence in urban metros (13.5%) compared to rural areas (6.9%)</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-blue-400">
+                        <p class="font-semibold text-gray-800 mb-2">Treatment Gap Crisis</p>
+                        <p class="text-gray-600">Over 80% of people with mental health issues do not receive treatment</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-green-400">
+                        <p class="font-semibold text-gray-800 mb-2">Youth Mental Health</p>
+                        <p class="text-gray-600">7.3% of youth (13-17 years) suffer from mental health conditions</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-orange-400">
+                        <p class="font-semibold text-gray-800 mb-2">Gender Disparities</p>
+                        <p class="text-gray-600">Women show higher rates of common mental disorders than men</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Papers Section -->
+    <section id="research" class="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Latest Research & Publications</h2>
+                <p class="text-xl text-gray-600">Evidence-based insights from leading mental health research</p>
+            </div>
+            
+            <!-- Featured Research -->
+            <div class="mb-12 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-purple-600">Featured Studies</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-lg p-6 card-hover border-l-4 border-purple-500">
+                        <div class="flex items-start mb-4">
+                            <span class="text-3xl mr-3">📄</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">National Mental Health Survey of India (2015-16)</h4>
+                                <p class="text-sm text-gray-600 mt-1">NIMHANS, Bengaluru | Published: 2016</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Comprehensive epidemiological study covering 12 states with 34,802 participants, providing first-ever national prevalence data on mental health disorders across India.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Epidemiology</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">National Survey</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">NIMHANS</span>
+                        </div>
+                        <button onclick="alert('Full research paper would open here')" class="text-purple-600 font-semibold hover:text-purple-800">Read Full Paper →</button>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-lg p-6 card-hover border-l-4 border-blue-500">
+                        <div class="flex items-start mb-4">
+                            <span class="text-3xl mr-3">📄</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">The Burden of Mental Disorders Across India (1990-2017)</h4>
+                                <p class="text-sm text-gray-600 mt-1">The Lancet Psychiatry | Published: 2019</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">Systematic analysis tracking trends in depression, anxiety, and schizophrenia burden over 27 years, highlighting increasing prevalence and disability-adjusted life years.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Disease Burden</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Lancet</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Longitudinal</span>
+                        </div>
+                        <button onclick="alert('Full research paper would open here')" class="text-blue-600 font-semibold hover:text-blue-800">Read Full Paper →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Categories -->
+            <div class="grid md:grid-cols-3 gap-6 fade-in">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <h4 class="font-bold text-lg mb-4 text-gray-800 flex items-center">
+                        <span class="text-2xl mr-2">🧬</span>
+                        Depression & Anxiety
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="border-l-3 border-green-400 pl-3">
+                            <p class="font-semibold text-gray-800">Efficacy of CBT in Indian Populations</p>
+                            <p class="text-gray-600 text-xs mt-1">Journal of Mental Health, 2023</p>
+                            <p class="text-gray-500 text-xs mt-1">Study of 450 patients across 8 cities</p>
+                        </li>
+                        <li class="border-l-3 border-green-400 pl-3">
+                            <p class="font-semibold text-gray-800">Prevalence of GAD in Urban India</p>
+                            <p class="text-gray-600 text-xs mt-1">Indian Journal of Psychiatry, 2022</p>
+                            <p class="text-gray-500 text-xs mt-1">Meta-analysis of 23 studies</p>
+                        </li>
+                        <li class="border-l-3 border-green-400 pl-3">
+                            <p class="font-semibold text-gray-800">COVID-19 Pandemic Mental Health Impact</p>
+                            <p class="text-gray-600 text-xs mt-1">Asian Journal of Psychiatry, 2021</p>
+                            <p class="text-gray-500 text-xs mt-1">Longitudinal study, N=2,300</p>
+                        </li>
+                    </ul>
+                    <button onclick="alert('Category page would open')" class="mt-4 text-green-600 font-semibold hover:underline text-sm">View 47 More Studies →</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <h4 class="font-bold text-lg mb-4 text-gray-800 flex items-center">
+                        <span class="text-2xl mr-2">🎓</span>
+                        Youth & Students
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="border-l-3 border-blue-400 pl-3">
+                            <p class="font-semibold text-gray-800">Academic Stress in Indian Students</p>
+                            <p class="text-gray-600 text-xs mt-1">Educational Psychology, 2023</p>
+                            <p class="text-gray-500 text-xs mt-1">Survey of 5,000 students</p>
+                        </li>
+                        <li class="border-l-3 border-blue-400 pl-3">
+                            <p class="font-semibold text-gray-800">Adolescent Depression Trends (2010-2020)</p>
+                            <p class="text-gray-600 text-xs mt-1">Child Psychiatry Review, 2022</p>
+                            <p class="text-gray-500 text-xs mt-1">10-year longitudinal study</p>
+                        </li>
+                        <li class="border-l-3 border-blue-400 pl-3">
+                            <p class="font-semibold text-gray-800">Social Media Impact on Youth Anxiety</p>
+                            <p class="text-gray-600 text-xs mt-1">Digital Health Journal, 2023</p>
+                            <p class="text-gray-500 text-xs mt-1">RCT with 1,200 participants</p>
+                        </li>
+                    </ul>
+                    <button onclick="alert('Category page would open')" class="mt-4 text-blue-600 font-semibold hover:underline text-sm">View 52 More Studies →</button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <h4 class="font-bold text-lg mb-4 text-gray-800 flex items-center">
+                        <span class="text-2xl mr-2">💊</span>
+                        Treatment & Therapy
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="border-l-3 border-purple-400 pl-3">
+                            <p class="font-semibold text-gray-800">Mindfulness-Based Stress Reduction</p>
+                            <p class="text-gray-600 text-xs mt-1">Mindfulness Journal, 2023</p>
+                            <p class="text-gray-500 text-xs mt-1">8-week intervention study</p>
+                        </li>
+                        <li class="border-l-3 border-purple-400 pl-3">
+                            <p class="font-semibold text-gray-800">Antidepressant Efficacy Review</p>
+                            <p class="text-gray-600 text-xs mt-1">Journal of Clinical Psychiatry, 2022</p>
+                            <p class="text-gray-500 text-xs mt-1">Systematic review of 89 trials</p>
+                        </li>
+                        <li class="border-l-3 border-purple-400 pl-3">
+                            <p class="font-semibold text-gray-800">Digital Mental Health Interventions</p>
+                            <p class="text-gray-600 text-xs mt-1">JMIR Mental Health, 2023</p>
+                            <p class="text-gray-500 text-xs mt-1">Meta-analysis, 34 apps tested</p>
+                        </li>
+                    </ul>
+                    <button onclick="alert('Category page would open')" class="mt-4 text-purple-600 font-semibold hover:underline text-sm">View 63 More Studies →</button>
+                </div>
+            </div>
+
+            <!-- Research Database Access -->
+            <div class="mt-12 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg shadow-xl p-8 fade-in">
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold mb-4">Access Our Research Database</h3>
+                    <p class="text-lg mb-6 max-w-3xl mx-auto">Explore our curated collection of 500+ peer-reviewed research papers on mental health, with special focus on Indian populations and global perspectives.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="alert('Research database would open')" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Browse Research Library</button>
+                        <button onclick="alert('Submit form would open')" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">Submit Your Research</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professionals Directory -->
+    <section id="professionals" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Find Mental Health Professionals</h2>
+                <p class="text-xl text-gray-600">Connect with verified psychiatrists, psychologists, and counselors across India</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-4xl mx-auto mb-12 fade-in">
+                <div class="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-lg p-6">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Specialty</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                <option>All Specialties</option>
+                                <option>Psychiatrist</option>
+                                <option>Clinical Psychologist</option>
+                                <option>Counselor</option>
+                                <option>Therapist</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                <option>Select City</option>
+                                <option>Mumbai</option>
+                                <option>Delhi</option>
+                                <option>Bangalore</option>
+                                <option>Chennai</option>
+                                <option>Kolkata</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Language</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                <option>Any Language</option>
+                                <option>English</option>
+                                <option>Hindi</option>
+                                <option>Marathi</option>
+                                <option>Tamil</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Professionals -->
+            <div class="grid md:grid-cols-3 gap-6 fade-in">
+                <div class="bg-white border-2 border-blue-200 rounded-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            PS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Dr. Priya Sharma</h4>
+                            <p class="text-sm text-gray-600">Clinical Psychologist</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm mb-4">
+                        <p class="text-gray-700"><span class="font-semibold">Experience:</span> 12 years</p>
+                        <p class="text-gray-700"><span class="font-semibold">Location:</span> Mumbai</p>
+                        <p class="text-gray-700"><span class="font-semibold">Languages:</span> English, Hindi, Marathi</p>
+                        <p class="text-gray-700"><span class="font-semibold">Fee:</span> ₹1,500-2,000</p>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-yellow-500">★★★★★</span>
+                        <span class="ml-2 text-sm text-gray-600">4.8 (156 reviews)</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">Book Appointment</button>
+                </div>
+
+                <div class="bg-white border-2 border-green-200 rounded-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            RK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Dr. Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-600">Psychiatrist</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm mb-4">
+                        <p class="text-gray-700"><span class="font-semibold">Experience:</span> 18 years</p>
+                        <p class="text-gray-700"><span class="font-semibold">Location:</span> Delhi NCR</p>
+                        <p class="text-gray-700"><span class="font-semibold">Languages:</span> English, Hindi</p>
+                        <p class="text-gray-700"><span class="font-semibold">Fee:</span> ₹2,000-2,500</p>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-yellow-500">★★★★★</span>
+                        <span class="ml-2 text-sm text-gray-600">4.9 (203 reviews)</span>
+                    </div>
+                    <button class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">Book Appointment</button>
+                </div>
+
+                <div class="bg-white border-2 border-purple-200 rounded-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Dr. Ananya Mehta</h4>
+                            <p class="text-sm text-gray-600">Counseling Psychologist</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm mb-4">
+                        <p class="text-gray-700"><span class="font-semibold">Experience:</span> 8 years</p>
+                        <p class="text-gray-700"><span class="font-semibold">Location:</span> Bangalore</p>
+                        <p class="text-gray-700"><span class="font-semibold">Languages:</span> English, Hindi</p>
+                        <p class="text-gray-700"><span class="font-semibold">Fee:</span> ₹1,200-1,800</p>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-yellow-500">★★★★★</span>
+                        <span class="ml-2 text-sm text-gray-600">4.7 (89 reviews)</span>
+                    </div>
+                    <button class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors">Book Appointment</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tools Section -->
+    <section id="tools" class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Interactive Wellness Tools</h2>
+                <p class="text-xl text-gray-600">Try these tools to support your mental wellness journey</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover fade-in">
+                    <h3 class="text-xl font-semibold mb-3 text-blue-600">Mood Tracker</h3>
+                    <p class="text-gray-600 mb-4">Track your daily mood to identify patterns and triggers</p>
+                    <button class="w-full bg-
